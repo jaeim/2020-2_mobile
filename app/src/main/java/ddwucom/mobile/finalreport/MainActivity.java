@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
+//ArrayAdapter 사용
 public class MainActivity extends AppCompatActivity {
 
     private ListView listView;
