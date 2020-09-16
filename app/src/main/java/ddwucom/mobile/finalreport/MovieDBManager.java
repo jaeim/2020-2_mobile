@@ -19,9 +19,12 @@ public class MovieDBManager {
     public Cursor getAllMovie() {
         SQLiteDatabase db = movieDBHelper.getReadableDatabase();
         cursor = db.rawQuery("SELECT * FROM " + MovieDBHelper.TABLE_NAME, null);
-        //cursor는 닫으면 안되는건가?
-        //Helper도 닫으니까 오류남!!!!!!!!!
-        //해당 movieDBHelper를 사용하는 cursor를 보내는거니까 helper도 닫으면 안되는건가??????????
+
+        //cursor는 닫으면 안됨!
+        //Helper도 닫으니까 오류남!
+        //해당 movieDBHelper를 사용하는 cursor를 보내는거니까 helper도 닫으면 안되는건가?
+       //그냥 cursor에 바로 쿼리를 넣는 것으로 수정하였음
+
 //        movieDBHelper.close();
 
         return cursor;
