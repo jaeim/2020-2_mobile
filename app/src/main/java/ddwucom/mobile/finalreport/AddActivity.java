@@ -58,14 +58,17 @@ public class AddActivity extends AppCompatActivity {
                     boolean result = movieDBManager.addNewMovie(newMovie);
                     if (result) {
                         Toast.makeText(this,"영화를 추가 하였습니다.", Toast.LENGTH_SHORT).show();
+                        setResult(RESULT_OK);
                         finish();
                     }
                     else {
                         Toast.makeText(this, "영화를 추가하지 못했습니다.", Toast.LENGTH_SHORT).show();
+                        setResult(RESULT_CANCELED);
                     }
                 }
                 break;
             case R.id.btn_add_cancel:
+                setResult(RESULT_CANCELED);
                 finish();
                 break;
         }

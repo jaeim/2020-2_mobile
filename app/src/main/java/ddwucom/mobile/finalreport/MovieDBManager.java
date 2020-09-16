@@ -15,29 +15,18 @@ public class MovieDBManager {
     public MovieDBManager(Context context) {    movieDBHelper = new MovieDBHelper(context);    }
 
     //모든 movie 반환
-    public ArrayList<Movie> getAllMovie() {
-        ArrayList<Movie> movieList = new ArrayList<Movie>();
+    /*
+    public Cursor getAllMovie() {
         SQLiteDatabase db = movieDBHelper.getReadableDatabase();
         cursor = db.rawQuery("SELECT * FROM " + MovieDBHelper.TABLE_NAME, null);
+        //cursor는 닫으면 안되는건가?
+        //Helper도 닫으니까 오류남!!!!!!!!!
+        //해당 movieDBHelper를 사용하는 cursor를 보내는거니까 helper도 닫으면 안되는건가??????????
+//        movieDBHelper.close();
 
-        while (cursor.moveToNext()) {
-            long id = cursor.getInt(cursor.getColumnIndex(MovieDBHelper.COL_ID));
-            String movieTitle = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_TITLE));
-            String releaseDate = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_RELEASE));
-            String director = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_DIRECTOR));
-            String actors = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_ACTORS));
-            float rating = cursor.getFloat(cursor.getColumnIndex(MovieDBHelper.COL_RATING));
-            String review = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_REVIEW));
-
-            movieList.add(new Movie(id, movieTitle, releaseDate, director, actors, review, rating));
-        }
-
-        cursor.close();
-        movieDBHelper.close();
-
-        return movieList;
+        return cursor;
     }
-
+*/
     //Movie 추가
     public boolean addNewMovie(Movie newMovie) {
         SQLiteDatabase db = movieDBHelper.getWritableDatabase();
@@ -90,32 +79,21 @@ public class MovieDBManager {
         if (count > 0) return true;
         return false;
     }
+
+    /*
     //제목을 기준으로 Movie 검색
-    public ArrayList<Movie> getMoviesByTitle(String title) {
+    public Cursor getMoviesByTitle(String title) {
         SQLiteDatabase db = movieDBHelper.getReadableDatabase();
-        ArrayList<Movie> selectedMovies = new ArrayList<Movie>();
 
         String selection = MovieDBHelper.COL_TITLE + "=?";
         String[] selectArgs = new String[] {    title   };
 
         Cursor cursor = db.query(MovieDBHelper.TABLE_NAME, null, selection, selectArgs, null, null, null, null);
-        while (cursor.moveToNext()) {
-            long id = cursor.getInt(cursor.getColumnIndex(MovieDBHelper.COL_ID));
-            String movieTitle = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_TITLE));
-            String releaseDate = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_RELEASE));
-            String director = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_DIRECTOR));
-            String actors = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_ACTORS));
-            float rating = cursor.getFloat(cursor.getColumnIndex(MovieDBHelper.COL_RATING));
-            String review = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_REVIEW));
 
-            selectedMovies.add(new Movie(id, movieTitle, releaseDate, director, actors, review, rating));
-            cursor.close();
-            movieDBHelper.close();
-        }
-        return selectedMovies;
+//        movieDBHelper.close();
+        return cursor;
     }
-
-
+*/
     //    close 수행
     public void close() {
         if (movieDBHelper != null) movieDBHelper.close();

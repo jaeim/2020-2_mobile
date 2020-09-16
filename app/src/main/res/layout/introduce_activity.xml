@@ -76,8 +76,7 @@
             android:id="@+id/textView17"
             android:layout_width="match_parent"
             android:layout_height="73dp"
-            android:gravity="center"
-            android:text="1년 휴학 후 현재 3학년 재학 중 입니다. 해외 축구 보는 것을 좋아하고, 동물을 무서워합니다. 아직까지 가장 좋아하는 영화는 보이후드입니다." />
+            android:gravity="center" />
 
         <Button
             android:id="@+id/btn_intro"

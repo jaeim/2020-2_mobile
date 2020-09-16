@@ -96,16 +96,17 @@ public class UpdateActivity extends AppCompatActivity {
                         //DB 수정
                         if (movieDBManager.modifyMovie(movie)) {
                             Toast.makeText(this,"영화를 수정 하였습니다.", Toast.LENGTH_SHORT).show();
+                            setResult(RESULT_OK);
                             finish();
                         }
                         else {
                             Toast.makeText(this, "영화를 수정하지 못했습니다.", Toast.LENGTH_SHORT).show();
+                            setResult(RESULT_CANCELED);
                         }
                     }
-
-
                     break;
                 case R.id.btn_update_cancel:
+                    setResult(RESULT_CANCELED);
                     finish();
                     break;
             }
