@@ -27,8 +27,9 @@ public class MovieDBManager {
             String director = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_DIRECTOR));
             String actors = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_ACTORS));
             float rating = cursor.getFloat(cursor.getColumnIndex(MovieDBHelper.COL_RATING));
+            String review = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_REVIEW));
 
-            movieList.add(new Movie(id, movieTitle, releaseDate, director, actors, rating));
+            movieList.add(new Movie(id, movieTitle, releaseDate, director, actors, review, rating));
         }
 
         cursor.close();
@@ -47,6 +48,7 @@ public class MovieDBManager {
         row.put(MovieDBHelper.COL_DIRECTOR, newMovie.getDirector());
         row.put(MovieDBHelper.COL_ACTORS, newMovie.getActors());
         row.put(MovieDBHelper.COL_RATING, newMovie.getRating());
+        row.put(MovieDBHelper.COL_REVIEW, newMovie.getReview());
 
         long count = db.insert(MovieDBHelper.TABLE_NAME, null, row);
         movieDBHelper.close();
@@ -65,6 +67,7 @@ public class MovieDBManager {
         row.put(MovieDBHelper.COL_DIRECTOR, movie.getDirector());
         row.put(MovieDBHelper.COL_ACTORS, movie.getActors());
         row.put(MovieDBHelper.COL_RATING, movie.getRating());
+        row.put(MovieDBHelper.COL_REVIEW, movie.getReview());
         String whereClause = MovieDBHelper.COL_ID + "=?";
         String[] whereArgs = new String[] {    String.valueOf(movie.get_id())   };
 
@@ -103,8 +106,9 @@ public class MovieDBManager {
             String director = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_DIRECTOR));
             String actors = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_ACTORS));
             float rating = cursor.getFloat(cursor.getColumnIndex(MovieDBHelper.COL_RATING));
+            String review = cursor.getString(cursor.getColumnIndex(MovieDBHelper.COL_REVIEW));
 
-            selectedMovies.add(new Movie(id, movieTitle, releaseDate, director, actors, rating));
+            selectedMovies.add(new Movie(id, movieTitle, releaseDate, director, actors, review, rating));
             cursor.close();
             movieDBHelper.close();
         }

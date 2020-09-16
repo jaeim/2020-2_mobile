@@ -45,7 +45,6 @@ public class MovieAdapter extends BaseAdapter {
         final int pos = position;
         ViewHolder viewHolder;
 
-
         if (convertView == null) {
             convertView = layoutInflater.inflate(layout, parent, false);
 

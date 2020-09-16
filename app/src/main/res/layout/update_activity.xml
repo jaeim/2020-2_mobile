@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -81,12 +83,31 @@
             android:layout_height="wrap_content"
             android:text="평점 (0.0/5.0)" />
 
+
         <EditText
             android:id="@+id/et_update_rating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="한줄 감상평" />
+
+        <EditText
+            android:id="@+id/et_update_review"
+            android:layout_width="match_parent"
+            android:layout_height="108dp"
+            android:ems="10"
+            android:gravity="top|left"
+            android:inputType="textMultiLine"
+            android:lines="3"
+            android:maxLines="6"
+            android:minLines="3"
+            android:scrollbars="vertical" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -110,4 +131,5 @@
                 android:text="취소" />
         </LinearLayout>
     </LinearLayout>
+</ScrollView>
 </androidx.appcompat.widget.LinearLayoutCompat>

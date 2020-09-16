@@ -8,6 +8,7 @@ public class Movie implements Serializable {
     String releaseDate;//1980-05-23
     String director;
     String actors;//(톰크루즈 외)
+    String review;
     float rating;//sqlite에서 real?
 
 
@@ -25,6 +26,25 @@ public class Movie implements Serializable {
         this.releaseDate = releaseDate;
         this.director = director;
         this.actors = actors;
+        this.rating = rating;
+    }
+
+    public Movie(String movieTitle, String releaseDate, String director, String actors, String review, float rating) {
+        this.movieTitle = movieTitle;
+        this.releaseDate = releaseDate;
+        this.director = director;
+        this.actors = actors;
+        this.review = review;
+        this.rating = rating;
+    }
+
+    public Movie(long _id, String movieTitle, String releaseDate, String director, String actors, String review, float rating) {
+        this._id = _id;
+        this.movieTitle = movieTitle;
+        this.releaseDate = releaseDate;
+        this.director = director;
+        this.actors = actors;
+        this.review = review;
         this.rating = rating;
     }
 
@@ -74,5 +94,13 @@ public class Movie implements Serializable {
 
     public void setRating(float rating) {
         this.rating = rating;
+    }
+
+    public String getReview() {
+        return review;
+    }
+
+    public void setReview(String review) {
+        this.review = review;
     }
 }
